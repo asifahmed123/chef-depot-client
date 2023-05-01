@@ -5,7 +5,7 @@ import Footer from '../Footer/Footer';
 
 const Main = () => {
      return (
-          <div>
+          <div className='container lg:px-40'>
                <Header></Header>
                <Outlet></Outlet>
                <Footer></Footer>
