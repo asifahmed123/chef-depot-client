@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { FaThumbsUp } from 'react-icons/fa';
-import Recipes from '../Recipes/Recipes';
+import Recipes from '../../Recipes/Recipes';
 
 const ChefRecipes = () => {
      const ChefRecipes = useLoaderData()
@@ -23,7 +23,7 @@ const ChefRecipes = () => {
                     </div>
                </div>
                <div>
-                    <h2 className='text-center text-5xl text-amber-500 font-bold underline mb-10'>Recipes:</h2>
+                    <h2 className='text-center text-5xl text-amber-500 font-bold underline mb-10 mt-20'>Recipes:</h2>
                     <div className='grid grid-cols-3'>
                          {
                               ChefRecipes?.recipes.map((recipe, index) => <Recipes

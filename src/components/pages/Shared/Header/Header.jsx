@@ -1,6 +1,7 @@
 import React from 'react';
-import ActiveLink from '../ActiveLink/ActiveLink';
 import { Avatar, Dropdown, Navbar } from 'flowbite-react';
+import ActiveLink from '../ActiveLink/ActiveLink';
+
 
 const Header = () => {
      return (
@@ -29,7 +30,7 @@ const Header = () => {
                               <span className="block text-sm">
                                    Bonnie Green
                               </span>
-                              
+
                          </Dropdown.Header>
                     </Dropdown>
                     <Navbar.Toggle />
@@ -37,6 +38,7 @@ const Header = () => {
                <Navbar.Collapse>
                     <ActiveLink to='/'><span className='lg:text-2xl'>Home</span></ActiveLink>
                     <ActiveLink to='/blog'><span className='lg:text-2xl'>Blog</span></ActiveLink>
+                    <ActiveLink to='/login'><span className='lg:text-2xl'>Login</span></ActiveLink>
                </Navbar.Collapse>
           </Navbar>
 
