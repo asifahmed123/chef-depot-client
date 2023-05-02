@@ -9,6 +9,8 @@ import {
 import Main from './components/Main/Main.jsx';
 import Home from './components/Home/Home.jsx';
 import Blog from './components/Blog/Blog.jsx';
+import ChefDetails from './components/ChefRecipes/ChefRecipes.jsx';
+import ChefRecipes from './components/ChefRecipes/ChefRecipes.jsx';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +19,13 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch('https://chef-depot-server-asifahmed123.vercel.app/chefs/')
+      },
+      {
+        path: '/ChefRecipes/:id',
+        element: <ChefRecipes></ChefRecipes>,
+        loader: ({params}) => fetch(`https://chef-depot-server-asifahmed123.vercel.app/chefs/${params.id}`)
       },
       {
         path: '/blog',
