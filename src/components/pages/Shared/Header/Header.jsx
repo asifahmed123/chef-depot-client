@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+
 import { Avatar, Dropdown, Navbar } from 'flowbite-react';
 import ActiveLink from '../ActiveLink/ActiveLink';
 import { AuthContext } from '../../../Provider/AuthProvider';
@@ -7,7 +8,6 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
      const { user, logOut } = useContext(AuthContext);
-     console.log(user?.photoURL);
 
      const handleLogout = () => {
           logOut()
@@ -49,6 +49,7 @@ const Header = () => {
                     <ActiveLink to='/'><span className='lg:text-2xl'>Home</span></ActiveLink>
                     <ActiveLink to='/blog'><span className='lg:text-2xl'>Blog</span></ActiveLink>
                     <ActiveLink to='/login'><span className='lg:text-2xl'>Login</span></ActiveLink>
+                    <ActiveLink to='/register'><span className='lg:text-2xl'>Register</span></ActiveLink>
                </Navbar.Collapse>
           </Navbar>
 

@@ -1,12 +1,16 @@
 import { Button, Label, TextInput } from 'flowbite-react';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Register = () => {
      const {createUser, updateUserProfile} = useContext(AuthContext)
+     const [error, setError] = useState('')
+     const [success, setSuccess] = useState('')
 
      const handleRegister = (event) => {
+          setError("")
+          setSuccess("")
           event.preventDefault();
           const form = event.target;
           const name = form.name.value;
@@ -15,23 +19,20 @@ const Register = () => {
           const password = form.password.value;
           console.log(name, photo, email, password);
 
+          if(password.length < 6){
+               setError("Password must be at least 6 character")
+               return
+          }
           createUser(email, password)
           .then(result => {
+               updateUserProfile(name, photo)
                console.log(result.user);
           })
           .catch(error => {
                console.log(error);
           })
-
           form.reset()
-
-          updateUserProfile(name, photo)
-          .then(()=> {
-               console.log('profile update');
-          })
-          .catch(error => {
-               console.log(error);
-          })
+          setSuccess('Registration Successful')
      }
      return (
           <div className='flex justify-center items-center'>
@@ -94,9 +95,13 @@ const Register = () => {
                               />
                          </div>
                          <Button type="submit">
+                         <Link to='/login' >
                               Register
+                         </Link>
                          </Button>
-                         <p>Already have an account? please <Link to='/login'>Login</Link></p>
+                         <p className='text-red-500'>{error}</p>
+                         <p className='text-green-500'>{success}</p>
+                         <p>Already have an account? please <Link className='text-blue-500' to='/login'>Login</Link></p>
                     </form>
                     <div className='w-[50%]'>
                          <img className='' src="https://img.freepik.com/free-vector/businessman-holding-pencil-big-complete-checklist-with-tick-marks_1150-35019.jpg?w=1060&t=st=1683046237~exp=1683046837~hmac=036617db07f9b0d5118b1dcc5b3a71b1fc34f4b987d37ef7ffb6a903a4017c37" alt="" />

@@ -1,11 +1,12 @@
 import { Button, Label, TextInput } from 'flowbite-react';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
-     const { user, signIn, googleSignIn, githubSignIn } = useContext(AuthContext)
+     const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext)
+     const [error, setError] = useState('')
      const navigate = useNavigate()
      const location = useLocation()
      console.log(location);
@@ -24,6 +25,7 @@ const Login = () => {
                     navigate(from)
                })
                .catch(error => {
+                    setError(error.message)
                     console.log(error.message);
                })
      }
@@ -85,7 +87,8 @@ const Login = () => {
                          <Button type="submit">
                               Login
                          </Button>
-                         <p>New to this website? please <Link to='/register'>Register</Link></p>
+                         <p className='text-red-500'>{error}</p>
+                         <p>New to this website? please <Link className='text-blue-500' to='/register'>Register</Link></p>
                          <div className='flex'>
                               <button onClick={handleGoogleSignIn} className='flex items-center bg-amber-500 px-3 py-2 rounded'><FaGoogle></FaGoogle><span className='ms-2'>Google Login</span></button>
                               <button onClick={handleGithubSignIn} className='flex items-center bg-stone-300 px-3 py-2 rounded ms-2'><FaGithub></FaGithub><span className='ms-2'>Github Login</span></button>
