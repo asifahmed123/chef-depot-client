@@ -6,8 +6,17 @@ import { Link } from 'react-router-dom';
 
 
 const Header = () => {
-     const { user } = useContext(AuthContext);
+     const { user, logOut } = useContext(AuthContext);
      console.log(user?.photoURL);
+
+     const handleLogout = () => {
+          logOut()
+          .then(() => {})
+          .catch(error => {
+               console.log(error.message);
+          })
+     }
+
      return (
           <Navbar
                fluid={true}
@@ -30,7 +39,7 @@ const Header = () => {
                     >
                     </Dropdown>
                     {
-                         user? <>{<Avatar alt="User settings" img={user?.photoURL} rounded={true} />}</>
+                         user? <>{<Avatar alt="User settings" img={user?.photoURL} rounded={true} />} <button onClick={handleLogout} className='bg-stone-300 font-bold px-3 py-2 rounded'>Logout</button></>
                          :
                          <button className='bg-stone-300 font-bold px-3 py-2 rounded'><Link to='/login'>Login</Link></button>
                     }

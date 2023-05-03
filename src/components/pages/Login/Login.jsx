@@ -1,12 +1,16 @@
 import { Button, Label, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { FaBeer, FaGithub, FaGoogle } from 'react-icons/fa';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
-     const {user, signIn, googleSignIn, githubSignIn} = useContext(AuthContext)
-     
+     const { user, signIn, googleSignIn, githubSignIn } = useContext(AuthContext)
+     const navigate = useNavigate()
+     const location = useLocation()
+     console.log(location);
+     const from = location.state?.from?.pathname
+
      const handleLogin = (event) => {
           event.preventDefault()
           const form = event.target;
@@ -15,32 +19,35 @@ const Login = () => {
           console.log(email, password);
 
           signIn(email, password)
-          .then(result => {
-               console.log(result.user);
-          })
-          .catch(error => {
-               console.log(error.message);
-          })
+               .then(result => {
+                    console.log(result.user);
+                    navigate(from)
+               })
+               .catch(error => {
+                    console.log(error.message);
+               })
      }
 
      const handleGoogleSignIn = () => {
           googleSignIn()
-          .then(result => {
-               console.log(result.user);
-          })
-          .catch(error => {
-               console.log(error.message);
-          })
+               .then(result => {
+                    console.log(result.user);
+                    navigate(from)
+               })
+               .catch(error => {
+                    console.log(error.message);
+               })
      }
 
      const handleGithubSignIn = () => {
           githubSignIn()
-          .then(result => {
-               console.log(result.user);
-          })
-          .catch(error => {
-               console.log(error.message);
-          })
+               .then(result => {
+                    console.log(result.user);
+                    navigate(from)
+               })
+               .catch(error => {
+                    console.log(error.message);
+               })
      }
      return (
           <>
