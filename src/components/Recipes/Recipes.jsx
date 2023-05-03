@@ -1,8 +1,10 @@
 import { Card } from 'flowbite-react';
 import React, { useState } from 'react';
 import { Rating } from '@smastrom/react-rating';
+import '@smastrom/react-rating/style.css'
 import { HiHeart } from "react-icons/hi";
 import { toast } from 'react-toastify';
+
 
 const Recipes = ({ recipe }) => {
      const [active, setActive] = useState(true)
@@ -13,8 +15,8 @@ const Recipes = ({ recipe }) => {
      const { img, name, rating, ingredients, method } = recipe
      console.log(ingredients);
      return (
-          <div className="max-w-sm">
-               <Card imgSrc={img}>
+          <div className="">
+               <Card imgSrc={img} style={{ height: '70rem' }}>
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                          {name}
                     </h5>
@@ -29,19 +31,21 @@ const Recipes = ({ recipe }) => {
                          <div className="w-[50%]">
                               <p>Cooking Method:
                                    {
-                                        method.map((m, index) => <li key={index}>{m}</li>)
+                                        method.map((m, index) => <li key={index} className=''>{m}</li>)
                                    }
                               </p>
                          </div>
                     </div>
                     <div className='flex justify-between'>
-                         <div>
+                         <div className='flex items-center gap-4'>
                               <Rating
-                                   style={{ maxWidth: 20 }}
+                                   style={{ maxWidth: 120 }}
                                    value={Math.round(rating || 0)}
+                                   readOnly
                               />
                               <span>{rating}</span>
                          </div>
+
                          <div>
                               <button onClick={handleAccepted} disabled={!active} ><HiHeart className={!active ? 'text-slate-400 text-4xl' : 'text-red-500 text-4xl'}></HiHeart></button>
                          </div>

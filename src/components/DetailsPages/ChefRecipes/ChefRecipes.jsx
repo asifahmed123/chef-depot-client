@@ -24,7 +24,7 @@ const ChefRecipes = () => {
                </div>
                <div>
                     <h2 className='text-center text-5xl text-amber-500 font-bold underline mb-10 mt-20'>Recipes:</h2>
-                    <div className='grid grid-cols-3'>
+                    <div className='grid grid-cols-2 gap-4'>
                          {
                               ChefRecipes?.recipes.map((recipe, index) => <Recipes
                                    key={index}
