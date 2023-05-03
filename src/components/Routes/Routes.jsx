@@ -5,6 +5,7 @@ import ChefRecipes from "../DetailsPages/ChefRecipes/ChefRecipes";
 import Blog from "../pages/Blog/Blog";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
      {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
                },
                {
                     path: '/ChefRecipes/:id',
-                    element: <ChefRecipes></ChefRecipes>,
+                    element: <PrivateRoute><ChefRecipes></ChefRecipes></PrivateRoute>,
                     loader: ({ params }) => fetch(`https://chef-depot-server-asifahmed123.vercel.app/chefs/${params.id}`)
                },
                {

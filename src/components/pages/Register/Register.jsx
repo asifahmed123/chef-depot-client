@@ -23,6 +23,8 @@ const Register = () => {
                console.log(error);
           })
 
+          form.reset()
+
           updateUserProfile(name, photo)
           .then(()=> {
                console.log('profile update');

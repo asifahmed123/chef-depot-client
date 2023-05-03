@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Avatar, Dropdown, Navbar } from 'flowbite-react';
 import ActiveLink from '../ActiveLink/ActiveLink';
+import { AuthContext } from '../../../Provider/AuthProvider';
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
+     const { user } = useContext(AuthContext);
+     console.log(user?.photoURL);
      return (
-
           <Navbar
                fluid={true}
                rounded={true}
@@ -24,15 +27,13 @@ const Header = () => {
                     <Dropdown
                          arrowIcon={false}
                          inline={true}
-                         label={<Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded={true} />}
                     >
-                         <Dropdown.Header>
-                              <span className="block text-sm">
-                                   Bonnie Green
-                              </span>
-
-                         </Dropdown.Header>
                     </Dropdown>
+                    {
+                         user? <>{<Avatar alt="User settings" img={user?.photoURL} rounded={true} />}</>
+                         :
+                         <button className='bg-stone-300 font-bold px-3 py-2 rounded'><Link to='/login'>Login</Link></button>
+                    }
                     <Navbar.Toggle />
                </div>
                <Navbar.Collapse>

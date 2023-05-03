@@ -5,7 +5,7 @@ import { FaBeer, FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
-     const {user} = useContext(AuthContext)
+     const {user, signIn, googleSignIn, githubSignIn} = useContext(AuthContext)
      
      const handleLogin = (event) => {
           event.preventDefault()
@@ -13,6 +13,34 @@ const Login = () => {
           const email = form.email.value;
           const password = form.password.value;
           console.log(email, password);
+
+          signIn(email, password)
+          .then(result => {
+               console.log(result.user);
+          })
+          .catch(error => {
+               console.log(error.message);
+          })
+     }
+
+     const handleGoogleSignIn = () => {
+          googleSignIn()
+          .then(result => {
+               console.log(result.user);
+          })
+          .catch(error => {
+               console.log(error.message);
+          })
+     }
+
+     const handleGithubSignIn = () => {
+          githubSignIn()
+          .then(result => {
+               console.log(result.user);
+          })
+          .catch(error => {
+               console.log(error.message);
+          })
      }
      return (
           <>
@@ -52,8 +80,8 @@ const Login = () => {
                          </Button>
                          <p>New to this website? please <Link to='/register'>Register</Link></p>
                          <div className='flex'>
-                              <button className='flex items-center bg-amber-500 px-3 py-2 rounded'><FaGoogle></FaGoogle><span className='ms-2'>Google Login</span></button>
-                              <button className='flex items-center bg-stone-300 px-3 py-2 rounded ms-2'><FaGithub></FaGithub><span className='ms-2'>Github Login</span></button>
+                              <button onClick={handleGoogleSignIn} className='flex items-center bg-amber-500 px-3 py-2 rounded'><FaGoogle></FaGoogle><span className='ms-2'>Google Login</span></button>
+                              <button onClick={handleGithubSignIn} className='flex items-center bg-stone-300 px-3 py-2 rounded ms-2'><FaGithub></FaGithub><span className='ms-2'>Github Login</span></button>
                          </div>
                     </form>
                     <div className='w-[50%]'>
