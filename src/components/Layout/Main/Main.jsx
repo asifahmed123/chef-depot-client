@@ -3,7 +3,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '../../pages/Shared/Header/Header';
 import { Outlet } from 'react-router-dom';
-import Footer from '../../pages/Shared/Footer/FooterPage';
 import FooterPage from '../../pages/Shared/Footer/FooterPage';
 
 const Main = () => {

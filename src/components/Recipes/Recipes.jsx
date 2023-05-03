@@ -15,8 +15,8 @@ const Recipes = ({ recipe }) => {
      const { img, name, rating, ingredients, method } = recipe
 
      return (
-          <div className="">
-               <Card imgSrc={img} style={{ height: '70rem' }}>
+          <div className=''>
+               <Card imgSrc={img} style={{ height: '60rem' }}>
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                          {name}
                     </h5>
@@ -24,14 +24,14 @@ const Recipes = ({ recipe }) => {
                          <div className="w-[50%]">
                               <p>Ingredients:
                                    {
-                                        ingredients.map((i, index) => <li key={index}>{i}</li>)
+                                        ingredients.slice(0, 5).map((i, index) => <li key={index}>{i}</li>)
                                    }
                               </p>
                          </div>
                          <div className="w-[50%]">
                               <p>Cooking Method:
                                    {
-                                        method.map((m, index) => <li key={index} className=''>{m}</li>)
+                                        method.slice(0, 5).map((m, index) => <li key={index} className=''>{m}</li>)
                                    }
                               </p>
                          </div>

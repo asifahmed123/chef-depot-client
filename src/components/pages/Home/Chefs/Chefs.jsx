@@ -4,7 +4,7 @@ import { FaThumbsUp } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Chefs = ({ chef }) => {
-     const { chef_picture, chef_name, years_of_experience, num_recipes, likes_num, bio, id } = chef
+     const { chef_picture, chef_name, years_of_experience, num_recipes, likes_num, id } = chef
      return (
           <div className="max-w-sm">
                <Card
