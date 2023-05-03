@@ -35,7 +35,7 @@ const Register = () => {
           setSuccess('Registration Successful')
      }
      return (
-          <div className='flex justify-center items-center'>
+          <div className='flex justify-center items-center mb-10'>
                     <form onSubmit={handleRegister} className="flex flex-col gap-4 w-[30%]">
                          <h2 className='text-5xl font-bold'>Please Register...</h2>
                          <div>

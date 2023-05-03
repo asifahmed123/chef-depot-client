@@ -13,7 +13,7 @@ const Recipes = ({ recipe }) => {
           toast('Added To Favorite')
      }
      const { img, name, rating, ingredients, method } = recipe
-     console.log(ingredients);
+
      return (
           <div className="">
                <Card imgSrc={img} style={{ height: '70rem' }}>
