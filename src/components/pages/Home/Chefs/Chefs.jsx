@@ -1,16 +1,19 @@
 import { Card } from 'flowbite-react';
 import React from 'react';
 import { FaThumbsUp } from 'react-icons/fa';
+import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
 const Chefs = ({ chef }) => {
      const { chef_picture, chef_name, years_of_experience, num_recipes, likes_num, id } = chef
      return (
           <div className="max-w-sm">
-               <Card
-                    imgSrc={chef_picture}
-                    style={{ height: '550px' }}
-               >
+               <Card>
+                    <div className='mx-auto'>
+                         <LazyLoad  threshold={1} onContentVisible={() => {console.log('loaded!')}}>
+                              <img className='h-60' src={chef_picture} alt="" />
+                         </LazyLoad>
+                    </div>
                     <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                          {chef_name}
                     </h5>

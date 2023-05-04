@@ -5,10 +5,9 @@ import Chefs from '../Chefs/Chefs';
 
 const Home = () => {
      const chefs = useLoaderData()
-     console.log(chefs);
      return (
           <>
-               <div className='lg:flex mx-auto justify-center items-center'>
+               <div className='lg:flex mx-auto justify-center items-center mb-20 mt-20'>
                     <div className='lg:w-[50%] text-center lg:text-start'>
                          <h2 className='text-4xl lg:text-7xl  font-bold mb-7'>We do not cook, <br />
                               we create your <br />
@@ -20,8 +19,8 @@ const Home = () => {
                               <button className='bg-stone-300 flex items-center px-4 py-3 ms-2'><FaChevronRight></FaChevronRight><span className='px-2'>About Us</span></button>
                          </div>
                     </div>
-                    <div className='lg:w-[50%]'>
-                         <img className='rounded-full mx-auto' style={{ height: '40rem' }} src="https://starbelly.bslthemes.com/wp-content/uploads/2022/03/girl.png" alt="" />
+                    <div className='lg:h-full lg:w-[50%]'>
+                         <img className='rounded-full mx-auto h-80 lg:h-full'  src="https://starbelly.bslthemes.com/wp-content/uploads/2022/03/girl.png" alt="" />
                     </div>
                </div>
 
