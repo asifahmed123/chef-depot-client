@@ -5,6 +5,7 @@ import Header from '../../pages/Shared/Header/Header';
 import { Outlet } from 'react-router-dom';
 import FooterPage from '../../pages/Shared/Footer/FooterPage';
 
+
 const Main = () => {
      return (
           <>
@@ -24,6 +25,7 @@ const Main = () => {
                          pauseOnHover
                          theme="light"
                     />
+                    
                </div>
           </>
      );

@@ -1,20 +1,22 @@
-import React, { useContext } from 'react';
-
+import React, { useContext, useState } from 'react';
 import { Avatar, Dropdown, Navbar } from 'flowbite-react';
 import ActiveLink from '../ActiveLink/ActiveLink';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import { Link } from 'react-router-dom';
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
 
 
 const Header = () => {
      const { user, logOut } = useContext(AuthContext);
+     const [isOpen, setIsOpen] = useState(false)
 
      const handleLogout = () => {
           logOut()
-          .then(() => {})
-          .catch(error => {
-               console.log(error.message);
-          })
+               .then(() => { })
+               .catch(error => {
+                    console.log(error.message);
+               })
      }
 
      return (
@@ -39,10 +41,17 @@ const Header = () => {
                     >
                     </Dropdown>
                     {
-                         user? <>{<Avatar alt="User settings" img={user?.photoURL} rounded={true} />} <button onClick={handleLogout} className='bg-stone-300 font-bold px-3 py-2 rounded'>Logout</button></>
-                         :
-                         <button className='bg-stone-300 font-bold px-3 py-2 rounded'><Link to='/login'>Login</Link></button>
+                         user ? <> <a data-tooltip-id="my-tooltip" onMouseOver={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
+                              {<Avatar alt="User settings" img={user?.photoURL} rounded={true} />}
+                         </a> <button onClick={handleLogout} className='bg-stone-300 font-bold px-3 py-2 ms-2 rounded'>Logout</button></>
+                              :
+                              <button className='bg-stone-300 font-bold px-3 py-2 rounded'><Link to='/login'>Login</Link></button>
                     }
+                    <Tooltip
+                         id="my-tooltip"
+                         content={user? user.displayName : ""}
+                         isOpen={isOpen}
+                    />
                     <Navbar.Toggle />
                </div>
                <Navbar.Collapse>
