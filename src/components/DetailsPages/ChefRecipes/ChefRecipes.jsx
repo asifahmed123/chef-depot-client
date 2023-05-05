@@ -22,7 +22,7 @@ const ChefRecipes = () => {
                               <img className='rounded h-full w-full' src={chef_picture} alt="" />
                          </LazyLoad>
                     </div>
-                    <div className='lg:w-[50%]'>
+                    <div className='lg:w-[50%] lg:ms-4'>
                          <p className='text-xl font-semibold'><span className='text-amber-500 font-bold text-3xl'>Description:</span> {bio}</p>
                          <p className='text-xl font-semibold'><span className='text-amber-500 font-bold text-3xl'>Years Of Experience:</span> {years_of_experience}</p>
 
