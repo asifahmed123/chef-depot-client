@@ -53,8 +53,8 @@ const Login = () => {
      }
      return (
           <>
-               <div className='flex justify-center items-center mb-10'>
-                    <form onSubmit={handleLogin} className="flex flex-col gap-4 w-[30%]">
+               <div className='lg:flex justify-center items-center mb-10 mt-20'>
+                    <form onSubmit={handleLogin} className="flex flex-col gap-4 w-[100%] lg:w-[40%]">
                          <h2 className='text-5xl font-bold'>Please Login...</h2>
                          <div>
                               <div className="mb-2 block">
@@ -94,7 +94,7 @@ const Login = () => {
                               <button onClick={handleGithubSignIn} className='flex items-center bg-stone-300 px-3 py-2 rounded ms-2'><FaGithub></FaGithub><span className='ms-2'>Github Login</span></button>
                          </div>
                     </form>
-                    <div className='w-[50%]'>
+                    <div className='w-[100%] lg:w-[50%] mt-20'>
                          <img className='' src="https://img.freepik.com/free-vector/login-concept-illustration_114360-739.jpg?w=740&t=st=1683040097~exp=1683040697~hmac=50ffbf1ce8d488f8acdcd9d1a8de05873998ce46261c0aaa00420a842137a18f" alt="" />
                     </div>
                </div>

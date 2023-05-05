@@ -16,13 +16,13 @@ const ChefRecipes = () => {
           <div className='mb-10 mt-20'>
                <h2 className='text-5xl font-bold text-center'>About <span className='text-amber-500 underline'>{chef_name}</span></h2>
 
-               <div className='mt-20 flex items-center'>
-                    <div className='w-[50%]'>
-                         <LazyLoad height={400} width={500} offset={10} threshold={0.95} onContentVisible={() => { console.log('loaded!') }}>
-                              <img className='rounded h-full' src={chef_picture} alt="" />
+               <div className='mt-20 lg:flex items-center'>
+                    <div className='lg:w-[50%]'>
+                         <LazyLoad  offset={10} threshold={0.95} onContentVisible={() => { console.log('loaded!') }}>
+                              <img className='rounded h-full w-full' src={chef_picture} alt="" />
                          </LazyLoad>
                     </div>
-                    <div className='w-[50%]'>
+                    <div className='lg:w-[50%]'>
                          <p className='text-xl font-semibold'><span className='text-amber-500 font-bold text-3xl'>Description:</span> {bio}</p>
                          <p className='text-xl font-semibold'><span className='text-amber-500 font-bold text-3xl'>Years Of Experience:</span> {years_of_experience}</p>
 
