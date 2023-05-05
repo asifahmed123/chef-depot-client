@@ -58,7 +58,7 @@ const Header = () => {
                     <Navbar.Collapse>
                          <ActiveLink to='/'><span className='lg:text-2xl'>Home</span></ActiveLink>
                          <ActiveLink to='/blog'><span className='lg:text-2xl'>Blog</span></ActiveLink>
-                         <ActiveLink to='/register'><span className='lg:text-2xl'>Register</span></ActiveLink>
+                         <ActiveLink to='/login'><span className='lg:text-2xl'>Login</span></ActiveLink>
                     </Navbar.Collapse>
                </Navbar>
                <hr className='border-2'/>
