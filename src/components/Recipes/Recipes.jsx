@@ -17,7 +17,7 @@ const Recipes = ({ recipe }) => {
 
      return (
           <div className=''>
-               <Card>
+               <Card className=''>
                     <LazyLoad>
                          <img src={img} alt="" />
                     </LazyLoad>
@@ -27,16 +27,20 @@ const Recipes = ({ recipe }) => {
                     <div className='flex '>
                          <div className="w-[50%]">
                               <p className='font-bold'>Ingredients:
+                                   <ul>
                                    {
                                         ingredients.slice(0, 5).map((i, index) => <li key={index}>{i}</li>)
                                    }
+                                   </ul>
                               </p>
                          </div>
                          <div className="w-[50%]">
                               <p className='font-bold'>Cooking Method:
+                                   <ul>
                                    {
                                         method.slice(0, 5).map((m, index) => <li key={index} className=''>{m}</li>)
                                    }
+                                   </ul>
                               </p>
                          </div>
                     </div>

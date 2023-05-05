@@ -13,7 +13,7 @@ const ChefRecipes = () => {
      const ChefRecipes = useLoaderData()
      const { chef_name, bio, chef_picture, likes_num, years_of_experience, num_recipes, } = ChefRecipes;
      return (
-          <div className='mb-10'>
+          <div className='mb-10 mt-20'>
                <h2 className='text-5xl font-bold text-center'>About <span className='text-amber-500 underline'>{chef_name}</span></h2>
 
                <div className='mt-20 flex items-center'>

@@ -6,8 +6,8 @@ import { Spinner } from 'flowbite-react';
 const PrivateRoute = ({ children }) => {
      const { user, loader } = useContext(AuthContext);
      const location = useLocation()
-
-     if(loader){
+     console.log(location);
+     if (loader) {
           return <Spinner aria-label="Default status example" />
      }
      if (user) {

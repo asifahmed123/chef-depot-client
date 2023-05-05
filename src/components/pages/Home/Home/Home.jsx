@@ -33,7 +33,7 @@ const Home = () => {
                               <p className='text-xl font-normal'>There are varieties of dishes. You can chose any one these dishes you want.</p>
                          </div>
                          <div>
-                              <button className='bg-amber-400 flex items-center px-4 py-3'><FaUtensils></FaUtensils><span className='px-2'>Our Menu</span></button>
+                              <button className='bg-amber-400 hidden lg:flex items-center px-4 py-3'><FaUtensils></FaUtensils><span className='px-2'>Our Menu</span></button>
                          </div>
                     </div>
                     <div className='grid lg:grid-cols-2 gap-4 mb-20'>
@@ -48,21 +48,21 @@ const Home = () => {
                               <img className='w-20' src="https://starbelly.bslthemes.com/wp-content/uploads/2022/05/category-2.png" alt="" />
                               <div>
                                    <h5 className='font-bold text-2xl mb-2'>Main Dishes</h5>
-                                   <p className='text-xl font-normal'>Get your best starter pack</p>
+                                   <p className='text-xl font-normal'>Our main dishes are always peoples first choice</p>
                               </div>
                          </div>         
                          <div className='flex gap-10 bg-slate-200 p-2 rounded-md w-full mx-auto'>
                               <img className='w-20' src="https://starbelly.bslthemes.com/wp-content/uploads/2022/05/category-3.png" alt="" />
                               <div>
                                    <h5 className='font-bold text-2xl mb-2'>Drinks</h5>
-                                   <p className='text-xl font-normal'>Get your best starter pack</p>
+                                   <p className='text-xl font-normal'>Drinks that will definitely remove your thirst</p>
                               </div>
                          </div>         
                          <div className='flex gap-10 bg-slate-200 p-2 rounded-md w-full mx-auto'>
                               <img className='w-20' src="https://starbelly.bslthemes.com/wp-content/uploads/2022/05/category-4.png" alt="" />
                               <div>
                                    <h5 className='font-bold text-2xl mb-2'>Desserts</h5>
-                                   <p className='text-xl font-normal'>Get your best starter pack</p>
+                                   <p className='text-xl font-normal'>Exclusive deserts you will never forget</p>
                               </div>
                          </div>         
                     </div>
@@ -102,9 +102,7 @@ const Home = () => {
                          </Chefs>)
                     }
                </div>
-
-
-
+               <hr className='border-2 mb-8' />
           </>
      );
 };

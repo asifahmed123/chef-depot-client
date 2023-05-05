@@ -9,7 +9,7 @@ import FooterPage from '../../pages/Shared/Footer/FooterPage';
 const Main = () => {
      return (
           <>
-               <div className='container lg:px-40'>
+               <div className='container px-5 lg:px-40'>
                     <Header></Header>
                     <Outlet></Outlet>
                     <FooterPage></FooterPage>
